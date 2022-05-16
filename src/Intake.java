@@ -13,6 +13,7 @@ public class Intake {
         timeArray = new ArrayList<String>();
     }
 
+
     public int getGoalWater() {
         return goalWater;
     }
@@ -114,6 +115,16 @@ public class Intake {
             System.out.println("You ate: " + timeArr.get(i).substring(ind + 1, timeArr.get(i).length() - 1) + " calories at " + timeArr.get(i).substring(0, ind));
         }
     }
+    }
+
+    public void reset() {
+        totalWaterDrank = 0;
+        totalCaloriesEaten = 0;
+        goalCalories = 0;
+        goalWater = 0;
+        for(int i = timeArray.size() - 1; i >= 0; i--) {
+        timeArray.remove(1);
+        }
     }
 
 }
