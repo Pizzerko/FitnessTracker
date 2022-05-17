@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Runner {
     public static void main(String[] args) {
         /**try {
@@ -9,73 +10,21 @@ public class Runner {
 
         }
          */
-        boolean t = false;
-        boolean tt = false;
-        int count = 0;
+        Scanner s = new Scanner(System.in);
+        System.out.println("What's your name: ");
+        String name = s.nextLine();
+        System.out.println("Hello " + name + ". Welcome to your personal fitness tracker.\nThere are many features for you to utilize. Type in word for word on what you'd like to do with the listed commands below.");
+        System.out.println("Before we start, what's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
+        int wamount = s.nextInt();
+        System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume, input just the number)?");
+        int camount = s.nextInt();
+        System.out.println("Finally, how many calories do you plan to burn today (input just the number)?");
+        int samount = s.nextInt();
+        Intake i = new Intake(wamount, camount);
+        Exercise e = new Exercise(samount);
 
-        while(!t) {
-            count++;
-            Intake i = new Intake(100, 2000);
-            if(tt) {
-                i.addWater(12, "11pm");
-                i.addCalories(150, "7am");
-                i.addWater(20, "2pm");
-                i.addCalories(1000, "10am");
-                i.addCalories(1100, "6pm");
-            }
-            else {
-                i.addWater(12, "12pm");
-                i.addCalories(200, "9am");
-                i.addWater(15, "5pm");
-                i.addCalories(500, "6am");
-                i.addCalories(1100, "10pm");
-            }
-            i.history(i.organizeTime());
-            System.out.println(i.getTotalCaloriesEaten());
-            System.out.println(i.getTotalWaterDrank());
-            System.out.println(i.isPassingCaloricGoal());
-            System.out.println(i.isPassingWaterGoal());
+        System.out.println("The fitness tracker's feature will now be displayed.\n-What do you want to do?\n-Set Water Goal\n-Set Calories Eaten Goal\n-Set Calories Eaten Goal\n-Add Water Drank\n-Add Calories Eaten\n-Add Steps Taken" +
+                "\n-Go To Tomorrow\n-End\n");
 
-            String num = "2000";
-            double goal = Integer.parseInt(num);
-            Exercise en = new Exercise(goal);
-            if(tt) {
-                en.addSteps(5000);
-                en.addSteps(5000);
-                en.addSteps(5000);
-                en.addSteps(5000);
-                en.addSteps(5000);
-                System.out.println(en.isWithinGoal());
-                System.out.println(en.getTotalCaloriesBurned());
-            }
-            else {
-                System.out.println(en.getCaloricGoal());
-                en.addSteps(5000);
-                System.out.println(en.getTotalCaloriesBurned());
-                System.out.println(en.getTotalStepsTook());
-                en.addSteps(10000);
-                System.out.println(en.isWithinGoal());
-                en.addSteps(20000);
-                System.out.println(en.isWithinGoal());
-                System.out.println(en.getTotalCaloriesBurned());
-                en.addSteps(20000);
-                en.addSteps(10000);
-                System.out.println(en.isWithinGoal());
-            }
-
-                NewDay n = new NewDay(i, en);
-
-            for (Exercise obj : n.getExerciseDays()) {
-                System.out.println(obj.getTotalStepsTook());
-            }
-            for (Intake ob : n.getIntakeDays()) {
-                System.out.println(ob.getTotalCaloriesEaten());
-            }
-            System.out.println(n.getExerciseDays().size() + " " + n.getIntakeDays().size());
-            tt = true;
-            if(count > 2) t = true;
-            System.out.println();
-            System.out.println();
-        }
     }
 }

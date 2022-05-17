@@ -3,12 +3,9 @@ public class NewDay {
     private ArrayList<Intake> intakeDays;
     private ArrayList<Exercise> exerciseDays;
 
-    public NewDay(Intake obj, Exercise objj) {
+    public NewDay() {
         exerciseDays = new ArrayList<Exercise>();
         intakeDays = new ArrayList<Intake>();
-        if(intakeDays.size() == 7 && exerciseDays.size() == 7) resetArrays();
-        intakeDays.add(obj);
-        exerciseDays.add(objj);
     }
 
     public boolean canCalculateAvg() {
@@ -57,13 +54,23 @@ public class NewDay {
         return avg / exerciseDays.size();
     }
 
-    private void resetArrays() {
+    public void addIntake(Intake obj) {
+        intakeDays.add(obj);
+    }
+
+    public void addExercise(Exercise obj) {
+        exerciseDays.add(obj);
+    }
+
+    public void resetArrays() {
+        if(intakeDays.size() == 7 && exerciseDays.size() == 7) {
             System.out.println("A new week has started!");
-            for(int i = 0; i < intakeDays.size(); i++) {
+            for (int i = 0; i < intakeDays.size(); i++) {
                 intakeDays.remove(i);
                 exerciseDays.remove(i);
                 i--;
             }
+        }
     }
 
 }
