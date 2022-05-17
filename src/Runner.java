@@ -23,8 +23,15 @@ public class Runner {
         Intake i = new Intake(wamount, camount);
         Exercise e = new Exercise(samount);
 
-        System.out.println("The fitness tracker's feature will now be displayed.\n-What do you want to do?\n-Set Water Goal\n-Set Calories Eaten Goal\n-Set Calories Eaten Goal\n-Add Water Drank\n-Add Calories Eaten\n-Add Steps Taken" +
+        System.out.println("The fitness tracker's feature will now be displayed.\n-What do you want to do?\n-Set Water Goal\n-Set Calories Eaten Goal\n-Set Calories Burnt Goal\n-Add Water Drank\n-Add Calories Eaten\n-Add Steps Taken" +
                 "\n-Go To Tomorrow\n-End\n");
+        String response = s.nextLine();
+        while(!response.equals("End")) {
+            if (!response.equals("Set Water Goal") && !response.equals("Set Calories Eaten Goal") && !response.equals("Set Calories Burnt Goal") && !response.equals("Add Water Drank")
+                    && !response.equals("Add Calories Eaten") && !response.equals("Add Steps Taken") && !response.equals("Go To Tomorrow")) {
+
+            }
+        }
 
     }
 }
