@@ -15,104 +15,142 @@ public class Runner {
         String name = s.nextLine();
         System.out.println("Hello " + name + ". Welcome to your personal fitness tracker.\nThere are many features for you to utilize. Type in word for word on what you'd like to do with the listed commands below.");
         System.out.println("Before we start, what's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
-        int wamount = s.nextInt();
+        String wamount = s.nextLine();
+        int wamount1 = Integer.parseInt(wamount);
         System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume, input just the number)?");
-        int camount = s.nextInt();
+        String camount = s.nextLine();
+        int camount1 = Integer.parseInt(camount);
         System.out.println("Finally, how many calories do you plan to burn today (input just the number)?");
-        int samount = s.nextInt();
-        Intake i = new Intake(wamount, camount);
-        Exercise e = new Exercise(samount);
+        String samount = s.nextLine();
+        int samount1 = Integer.parseInt(samount);
+        Intake i = new Intake(wamount1, camount1);
+        Exercise e = new Exercise(samount1);
         NewDay n = new NewDay();
-
+        System.out.println("The fitness tracker's feature will now be displayed (type the number, not the phrase).");
         boolean stop = true;
             while (stop) {
-                System.out.println("The fitness tracker's feature will now be displayed.\n-What do you want to do?\n-Set Water Goal\n-Set Calories Eaten Goal\n-Set Calories Burnt Goal\n-Get Info\n-Add Water Drank\n-Add Calories Eaten\n-Add Steps Taken" +
-                        "\n-Go To Tomorrow\n-End");
+                System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" +
+                        "\n8. Find Averages\n9. Passing Goal\n10. Today's History\n11. Go To Tomorrow\n12. End");
                 String response = s.nextLine();
                 response = response.toLowerCase();
-                if(response.equals("end")) {
+                if(response.equals("12")) {
                     System.out.println("System shutting down...\nFiles Saving...Saved!");
                     stop = false;
             }
-                else if(response.equals("go to tomorrow")) {
+                else if(response.equals("11")) {
                     n.addExercise(e);
                     n.addIntake(i);
                     n.resetArrays();
                     i.reset();
                     e.reset();
                     System.out.println("What's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
-                    wamount = s.nextInt();
+                    wamount = s.nextLine();
                     System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume, input just the number)?");
-                    camount = s.nextInt();
+                    camount = s.nextLine();
                     System.out.println("Finally, how many calories do you plan to burn today (input just the number)?");
-                    samount = s.nextInt();
-                    i.setGoalCalories(camount);
-                    i.setGoalWater(wamount);
-                    e.setCaloricGoal(samount);
+                    samount = s.nextLine();
+                    wamount1 = Integer.parseInt(wamount);
+                    camount1 = Integer.parseInt(camount);
+                    samount1 = Integer.parseInt(samount);
+                    i.setGoalCalories(camount1);
+                    i.setGoalWater(wamount1);
+                    e.setCaloricGoal(samount1);
                 }
-                else if(response.equals("set water goal")) {
+                else if(response.equals("1")) {
                     System.out.println("What's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
-                    wamount = s.nextInt();
-                    i.setGoalWater(wamount);
+                    wamount = s.nextLine();
+                    wamount1 = Integer.parseInt(wamount);
+                    i.setGoalWater(wamount1);
                 }
-                else if(response.equals("set calories eaten goal")) {
+                else if(response.equals("2")) {
                     System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume, input just the number)?");
-                    camount = s.nextInt();
-                    i.setGoalCalories(camount);
+                    camount = s.nextLine();
+                    camount1 = Integer.parseInt(camount);
+                    i.setGoalCalories(camount1);
                 }
-                else if(response.equals("set calories burnt goal")) {
+                else if(response.equals("3")) {
                     System.out.println("How many calories do you plan to burn today (input just the number)?");
-                    samount = s.nextInt();
-                    e.setCaloricGoal(samount);
+                    samount = s.nextLine();
+                    samount1 = Integer.parseInt(samount);
+                    e.setCaloricGoal(samount1);
                 }
-                else if(response.equals("add water drank")) {
+                else if(response.equals("5")) {
                     System.out.println("How many fl oz of water did you drink? ");
-                    int water = s.nextInt();
+                    String water = s.nextLine();
+                    int water1 = Integer.parseInt(water);
                     System.out.println("At what time? (input, for example, 12am, 5pm) ");
                     String time = s.nextLine();
-                    i.addWater(water, time);
+                    i.addWater(water1, time);
                 }
-                else if(response.equals("add calories eaten")) {
+                else if(response.equals("6")) {
                     System.out.println("How many calories did you eat? ");
-                    int calories = s.nextInt();
+                    String calories = s.nextLine();
+                    int calories1 = Integer.parseInt(calories);
                     System.out.println("At what time? (input, for example, 12am, 5pm) ");
                     String time = s.nextLine();
-                    i.addCalories(calories, time);
+                    i.addCalories(calories1, time);
                 }
-                else if(response.equals("add steps taken")) {
+                else if(response.equals("7")) {
                     System.out.println("How many steps did you take? ");
-                    int steps = s.nextInt();
-                    e.addSteps(steps);
+                    String steps = s.nextLine();
+                    int steps1 = Integer.parseInt(steps);
+                    e.addSteps(steps1);
                 }
-                else if(response.equals("get info")) {
+                else if(response.equals("4")) {  //info
                     System.out.println();
-                    System.out.println("What would you like to know?\n-Get Total Water Drank\n-Get Total Calories Eaten\n-Get Water Intake Goal\n-Get Caloric Intake Goal\n-Get Total Steps Taken\n-Get Total Calories Burned\n-Get Caloric Burn Goal");
+                    System.out.println("What would you like to know?\n1. Get Total Water Drank\n2. Get Total Calories Eaten\n3. Get Water Intake Goal\n4. Get Caloric Intake Goal\n5. Get Total Steps Taken\n6. Get Total Calories Burned\n7. Get Caloric Burn Goal");
                     String response1 = s.nextLine();
                     response1 = response1.toLowerCase();
-                    if (response1.equals("get total water drank")) {
+                    if (response1.equals("1")) {
                         System.out.println(i.getTotalWaterDrank() + " fl oz drank");
                     }
-                    else if(response1.equals("get total calories eaten")) {
+                    else if(response1.equals("2")) {
                         System.out.println(i.getTotalCaloriesEaten() + " calories");
                     }
-                    else if(response1.equals("get water intake goal")) {
+                    else if(response1.equals("3")) {
                         System.out.println(i.getGoalWater() + " fl oz");
                     }
-                    else if(response1.equals("get caloric intake goal")) {
+                    else if(response1.equals("4")) {
                         System.out.println(i.getGoalCalories() + " calories");
                     }
-                    else if(response1.equals("get total steps taken")) {
+                    else if(response1.equals("5")) {
                         System.out.println(e.getTotalStepsTook() + " steps");
                     }
-                    else if(response1.equals("get total calories burned")) {
+                    else if(response1.equals("6")) {
                         System.out.println(e.getTotalCaloriesBurned() + " calories");
                     }
-                    else if(response1.equals("get caloric burn goal")) {
+                    else if(response1.equals("7")) {
                         System.out.println(e.getCaloricGoal() + " calories");
                     }
                     else System.out.println("Invalid Input, going back to page 1.");
                     }
+                else if(response.equals("8")) {         //avgs
+                    System.out.println();
+                    System.out.println("Which averages would you like to know?\n1. Average Water Drank\n2. Average Calories Eaten\n3. Average Steps Taken\n4. Average Calories Burned");
+                    String response2 = s.nextLine();
+                    if(response2.equals("1")) {
+                        System.out.println(n.averageWaterDrank() + "for " + n.getIntakeDays().size() + " days");
+                    }
+                    else if(response2.equals("2")) {
+                        System.out.println(n.averageCaloriesEaten() + "for " + n.getIntakeDays().size() + " days");
+                    }
+                    else if(response2.equals("3")) {
+                        System.out.println(n.averageStepsTaken() + "for " + n.getExerciseDays().size() + " days");
+                    }
+                    else if(response2.equals("4")) {
+                        System.out.println(n.averageCaloriesBurned() + "for " + n.getExerciseDays().size() + " days");
+                    }
+                    else System.out.println("Invalid Input, going back to page 1.");
+                }
+                else if(response.equals("10")) {
+                    i.history();
+                }
+                else if(response.equals("9")) {
+                    System.out.println("Which do you want to know?\n1. Passing Water Goal\n2. Passing Caloric Intake Goal\n3.Passing Caloric Burn Goal");
+                }
+
                 else System.out.println("Invalid. Re-input your decision.");
+                System.out.println();
                 }
 
         }

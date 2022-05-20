@@ -72,7 +72,7 @@ public class Intake {
         else return "You're not there yet. Keep eating!";
     }
 
-    public ArrayList<String> organizeTime() {
+    private ArrayList<String> organizeTime() {
         int countAM = 0;
         int countPM = 0;
         for(int i = 0; i < timeArray.size(); i++) {
@@ -105,7 +105,8 @@ public class Intake {
         return timeArray;
     }
 
-    public void history(ArrayList<String> timeArr) {
+    public void history() {
+    ArrayList<String> timeArr = organizeTime();
     for(int i = 0; i < timeArr.size(); i++) {
         int ind = timeArr.get(i).indexOf(".");
         if(timeArr.get(i).substring(timeArr.get(i).length() - 1).equals("w")) {
@@ -123,7 +124,7 @@ public class Intake {
         goalCalories = 0;
         goalWater = 0;
         for(int i = timeArray.size() - 1; i >= 0; i--) {
-        timeArray.remove(1);
+        timeArray.remove(i);
         }
     }
 
