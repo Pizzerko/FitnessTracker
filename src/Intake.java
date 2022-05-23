@@ -104,7 +104,7 @@ public class Intake {
         }
 
         ind = timeArray.get(timeArray.size() - countPM).indexOf(".");
-        for(int p = timeArray.size() - countPM + 1; p < timeArray.size(); p++) {
+        for(int p = timeArray.size() - countPM; p < timeArray.size(); p++) {
             int smallest = Integer.parseInt(timeArray.get(timeArray.size() - countPM).substring(0, ind - 2));
             if (smallest == 12) smallest = 0;
             for (int pp = 0; pp < timeArray.size() - countPM; pp++) {
