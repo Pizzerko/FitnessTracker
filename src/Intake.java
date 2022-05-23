@@ -84,24 +84,40 @@ public class Intake {
             }
         countPM = timeArray.size() - countAM;
         int ind = timeArray.get(0).indexOf(".");
-        int smallest = Integer.parseInt(timeArray.get(0).substring(0, ind - 2));
-        for(int a = 1; a < timeArray.size() - countPM; a++) {
-            ind = timeArray.get(a).indexOf(".");
-            int temp = Integer.parseInt(timeArray.get(a).substring(0, ind - 2));
-            if(temp == 12) temp = 0;
-            if(temp < smallest) {
-                timeArray.add(0, timeArray.remove(a));
+        for(int a = 0; a < timeArray.size() - countPM; a++) {
+            int smallest = Integer.parseInt(timeArray.get(a).substring(0, ind - 2));
+            if(smallest == 12) smallest = 0;
+            for(int aa = 0; aa < timeArray.size() - countPM; aa++) {
+                ind = timeArray.get(aa).indexOf(".");
+                int temp = Integer.parseInt(timeArray.get(aa).substring(0, ind - 2));
+                if (temp == 12) {
+                    temp = 0;
+                }
+                if (temp < smallest) {
+                    smallest = temp;
+                    timeArray.add(0, timeArray.remove(aa));
+                }
+                else {
+                    timeArray.add(a + 1, timeArray.remove(aa));
+                }
             }
         }
 
         ind = timeArray.get(timeArray.size() - countPM).indexOf(".");
-        smallest = Integer.parseInt(timeArray.get(timeArray.size() - countPM).substring(0, ind - 2));
         for(int p = timeArray.size() - countPM + 1; p < timeArray.size(); p++) {
-            ind = timeArray.get(p).indexOf(".");
-            int temp = Integer.parseInt(timeArray.get(p).substring(0, ind - 2));
-            if(temp == 12) temp = 0;
-            if(temp < smallest) {
-                timeArray.add(timeArray.size() - countPM, timeArray.remove(p));
+            int smallest = Integer.parseInt(timeArray.get(timeArray.size() - countPM).substring(0, ind - 2));
+            if (smallest == 12) smallest = 0;
+            for (int pp = 0; pp < timeArray.size() - countPM; pp++) {
+                ind = timeArray.get(pp).indexOf(".");
+                int temp = Integer.parseInt(timeArray.get(pp).substring(0, ind - 2));
+                if (temp == 12) temp = 0;
+                if (temp < smallest) {
+                    smallest = temp;
+                    timeArray.add(countAM, timeArray.remove(p));
+                }
+                else {
+                    timeArray.add(p + 1, timeArray.remove(pp));
+                }
             }
         }
         return timeArray;

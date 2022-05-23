@@ -77,7 +77,6 @@ public class Runner {
                     samount1 = Integer.parseInt(samount);
                     e.setCaloricGoal(samount1);
                     System.out.println("Success.");
-
                 }
                 else if(response.equals("5")) {
                     System.out.println("How many fl oz of water did you drink? ");
