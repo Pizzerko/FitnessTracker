@@ -1,9 +1,9 @@
 public class Exercise {
     private int totalStepsTook;
-    private double totalCaloriesBurned;
-    private double caloricGoal;
+    private int totalCaloriesBurned;
+    private int caloricGoal;
 
-    public Exercise(double caloricG) {
+    public Exercise(int caloricG) {
         caloricGoal = caloricG;
     }
 
@@ -40,7 +40,7 @@ public class Exercise {
         if(totalCaloriesBurned > caloricGoal) {
             return"You're past your caloric goal. You walked a lot didn't you.";
         }
-        if(totalCaloriesBurned * 1.1 >= caloricGoal) {
+        if((int) (totalCaloriesBurned * 1.1) >= caloricGoal) {
             return"You're close! Walk morea!";
 
         }

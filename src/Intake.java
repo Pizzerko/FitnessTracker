@@ -88,6 +88,7 @@ public class Intake {
         for(int a = 1; a < timeArray.size() - countPM; a++) {
             ind = timeArray.get(a).indexOf(".");
             int temp = Integer.parseInt(timeArray.get(a).substring(0, ind - 2));
+            if(temp == 12) temp = 0;
             if(temp < smallest) {
                 timeArray.add(0, timeArray.remove(a));
             }
@@ -98,7 +99,8 @@ public class Intake {
         for(int p = timeArray.size() - countPM + 1; p < timeArray.size(); p++) {
             ind = timeArray.get(p).indexOf(".");
             int temp = Integer.parseInt(timeArray.get(p).substring(0, ind - 2));
-            if(temp > smallest) {
+            if(temp == 12) temp = 0;
+            if(temp < smallest) {
                 timeArray.add(timeArray.size() - countPM, timeArray.remove(p));
             }
         }
