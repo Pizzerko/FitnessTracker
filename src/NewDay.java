@@ -26,16 +26,14 @@ public class NewDay {
         for(Intake obj : intakeDays) {
             avg += obj.getTotalWaterDrank();
         }
-        avg /= intakeDays.size();
-        return avg;
+        return avg / intakeDays.size();
     }
     public double averageCaloriesEaten() {
         double avg = 0;
         for(Intake obj : intakeDays) {
             avg += obj.getTotalCaloriesEaten();
         }
-        avg /= intakeDays.size();
-        return avg;
+        return avg / intakeDays.size();
     }
 
     public double averageStepsTaken() {
@@ -63,7 +61,7 @@ public class NewDay {
     }
 
     public void resetArrays() {
-        if(intakeDays.size() == 7 && exerciseDays.size() == 7) {
+        if(intakeDays.size() == 8 && exerciseDays.size() == 8) {
             System.out.println("A new week has started!");
             for (int i = 0; i < intakeDays.size(); i++) {
                 intakeDays.remove(i);

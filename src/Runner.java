@@ -39,9 +39,9 @@ public class Runner {
                     stop = false;
             }
                 else if(response.equals("11")) {
-                    n.addExercise(e);
-                    n.addIntake(i);
                     n.resetArrays();
+                    n.addExercise(e); //fix into just adding the calories, steps, water, etc into an arraylist (make 2 more)
+                    n.addIntake(i);
                     i.reset();
                     e.reset();
                     System.out.println("What's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
@@ -134,13 +134,13 @@ public class Runner {
                         System.out.println("Which averages would you like to know?\n1. Average Water Drank\n2. Average Calories Eaten\n3. Average Steps Taken\n4. Average Calories Burned");
                         String response2 = s.nextLine();
                         if (response2.equals("1")) {
-                            System.out.println(n.averageWaterDrank() + "for " + n.getIntakeDays().size() + " days");
+                            System.out.println(n.averageWaterDrank() + " for " + n.getIntakeDays().size() + " days");
                         } else if (response2.equals("2")) {
-                            System.out.println(n.averageCaloriesEaten() + "for " + n.getIntakeDays().size() + " days");
+                            System.out.println(n.averageCaloriesEaten() + " for " + n.getIntakeDays().size() + " days");
                         } else if (response2.equals("3")) {
-                            System.out.println(n.averageStepsTaken() + "for " + n.getExerciseDays().size() + " days");
+                            System.out.println(n.averageStepsTaken() + " for " + n.getExerciseDays().size() + " days");
                         } else if (response2.equals("4")) {
-                            System.out.println(n.averageCaloriesBurned() + "for " + n.getExerciseDays().size() + " days");
+                            System.out.println(n.averageCaloriesBurned() + " for " + n.getExerciseDays().size() + " days");
                         } else System.out.println("Invalid Input, going back to page 1.");
                     }
                     else System.out.println("Invalid, no inputs yet.");
