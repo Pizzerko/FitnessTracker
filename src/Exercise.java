@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Exercise {
     private int totalStepsTook;
     private int totalCaloriesBurned;
@@ -53,4 +56,19 @@ public class Exercise {
         caloricGoal = 0;
     }
 
+    public void save() {
+        try {
+            File f = new File("src/PersonalFitness.data");
+            f.createNewFile();
+            FileWriter ff = new FileWriter("src/Info,data");
+            ff.write(totalStepsTook + "\n");
+            ff.write(totalCaloriesBurned + "\n");
+            ff.write(caloricGoal + "\n");
+            ff.close();
+        }
+        catch (IOException e) {
+            System.out.println("File isn't a thing.");
+            e.printStackTrace();
+        }
+    }
 }

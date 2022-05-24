@@ -1,71 +1,84 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 public class NewDay {
-    private ArrayList<Intake> intakeDays;
-    private ArrayList<Exercise> exerciseDays;
+    private ArrayList<Integer> waterArr;
+    private ArrayList<Integer> caloriesEArr;
+    private ArrayList<Integer> stepsArr;
+    private ArrayList<Double> caloriesBArr;
 
     public NewDay() {
-        exerciseDays = new ArrayList<Exercise>();
-        intakeDays = new ArrayList<Intake>();
+        caloriesEArr = new ArrayList<Integer>();
+        waterArr = new ArrayList<Integer>();
+        stepsArr = new ArrayList<Integer>();
+        caloriesBArr = new ArrayList<Double>();
     }
 
     public boolean canCalculateAvg() {
-        if(intakeDays.size() == 0 && exerciseDays.size() == 0) return false;
+        if(waterArr.size() == 0) return false;
         return true;
     }
 
-    public ArrayList<Exercise> getExerciseDays() {
-        return exerciseDays;
+    public ArrayList<Integer> getCaloriesEArr() {
+        return caloriesEArr;
     }
 
-    public ArrayList<Intake> getIntakeDays() {
-        return intakeDays;
+    public ArrayList<Integer> getWaterArr() {
+        return waterArr;
     }
 
     public double averageWaterDrank() {
         double avg = 0;
-        for(Intake obj : intakeDays) {
-            avg += obj.getTotalWaterDrank();
+        for(int obj : waterArr) {
+            avg += obj;
         }
-        return avg / intakeDays.size();
+        return avg / waterArr.size();
     }
     public double averageCaloriesEaten() {
         double avg = 0;
-        for(Intake obj : intakeDays) {
-            avg += obj.getTotalCaloriesEaten();
+        for(int obj : waterArr) {
+            avg += obj;
         }
-        return avg / intakeDays.size();
+        return avg / waterArr.size();
     }
 
     public double averageStepsTaken() {
         double avg = 0;
-        for(Exercise obj : exerciseDays) {
-            avg += obj.getTotalStepsTook();
+        for(int obj : caloriesEArr) {
+            avg += obj;
         }
-        return avg / exerciseDays.size();
+        return avg / caloriesEArr.size();
     }
 
     public double averageCaloriesBurned() {
         double avg = 0;
-        for(Exercise obj : exerciseDays) {
-            avg += obj.getTotalCaloriesBurned();
+        for(int obj : caloriesEArr) {
+            avg += obj;
         }
-        return avg / exerciseDays.size();
+        return avg / caloriesEArr.size();
     }
 
-    public void addIntake(Intake obj) {
-        intakeDays.add(obj);
+    public void addWater(int water) {
+        waterArr.add(water);
     }
 
-    public void addExercise(Exercise obj) {
-        exerciseDays.add(obj);
+    public void addCaloriesEaten(int cEaten) {
+        caloriesEArr.add(cEaten);
+    }
+
+    public void addSteps(int steps) {
+        stepsArr.add(steps);
+    }
+    public void addCaloriesBurned(double cBurned) {
+        caloriesBArr.add(cBurned);
     }
 
     public void resetArrays() {
-        if(intakeDays.size() == 8 && exerciseDays.size() == 8) {
+        if(waterArr.size() == 8 && caloriesEArr.size() == 8) {
             System.out.println("A new week has started!");
-            for (int i = 0; i < intakeDays.size(); i++) {
-                intakeDays.remove(i);
-                exerciseDays.remove(i);
+            for (int i = 0; i < waterArr.size(); i++) {
+                waterArr.remove(i);
+                caloriesEArr.remove(i);
                 i--;
             }
         }

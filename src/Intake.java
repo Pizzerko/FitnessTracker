@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Intake {
@@ -93,9 +96,7 @@ public class Intake {
                 ind = timeArray.get(aa).indexOf(".");
                 int temp = Integer.parseInt(timeArray.get(aa).substring(0, ind - 2));
                 if (temp == 12) temp = 0;
-                System.out.println(temp + " " + smallest);
                 if (temp < smallest) {
-                    System.out.println("hi");
                     smallest = temp;
                     count = aa;
                     timeArray.add(a ,timeArray.remove(count));
@@ -143,6 +144,26 @@ public class Intake {
         goalWater = 0;
         for(int i = timeArray.size() - 1; i >= 0; i--) {
         timeArray.remove(i);
+        }
+    }
+
+    public void save() {
+        try {
+            File file = new File("src/PersonalFitness.data");
+            file.createNewFile();
+        FileWriter ff = new FileWriter("src/PersonalFitness.data");
+        ff.write(totalWaterDrank + "\n");
+        ff.write(totalCaloriesEaten + "\n");
+        ff.write(goalWater + "\n");
+        ff.write(goalCalories + "\n");
+        for(int i = 0; i < timeArray.size(); i++) {
+            ff.write(timeArray.get(i) + "\n");
+        }
+        ff.close();
+        }
+        catch(IOException e) {
+        System.out.println("Unable to find file");
+        e.printStackTrace();
         }
     }
 
