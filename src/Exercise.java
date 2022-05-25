@@ -58,12 +58,12 @@ public class Exercise {
 
     public void save() {
         try {
-            File f = new File("src/PersonalFitness.data");
+            File f = new File("src/Intake.data");
             f.createNewFile();
             FileWriter ff = new FileWriter("src/Info,data");
-            ff.write(totalStepsTook + "\n");
-            ff.write(totalCaloriesBurned + "\n");
-            ff.write(caloricGoal + "\n");
+            ff.write(caloricGoal + "|");
+            ff.write(totalCaloriesBurned + "|");
+            ff.write(totalStepsTook);
             ff.close();
         }
         catch (IOException e) {

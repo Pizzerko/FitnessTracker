@@ -50,6 +50,13 @@ public class Intake {
         timeArray.add(time + "." + calories + "c");
     }
 
+    public void setWater(int water) {
+        totalWaterDrank = water;
+    }
+    public void setCaloriesE(int calories) {
+        totalCaloriesEaten = calories;
+    }
+
     public String isPassingWaterGoal() {
         if(totalWaterDrank == goalWater) {
             return "Well done, you drank up to your goal!";
@@ -146,18 +153,21 @@ public class Intake {
         timeArray.remove(i);
         }
     }
+    public void addHistory(String s) {
+        timeArray.add(s);
+    }
 
     public void save() {
         try {
-            File file = new File("src/PersonalFitness.data");
+            File file = new File("src/Intake.data");
             file.createNewFile();
-        FileWriter ff = new FileWriter("src/PersonalFitness.data");
-        ff.write(totalWaterDrank + "\n");
+        FileWriter ff = new FileWriter("src/Intake.data");
+        ff.write(goalWater + "|");
+        ff.write(goalCalories + "|");
+        ff.write(totalWaterDrank+ "|");
         ff.write(totalCaloriesEaten + "\n");
-        ff.write(goalWater + "\n");
-        ff.write(goalCalories + "\n");
         for(int i = 0; i < timeArray.size(); i++) {
-            ff.write(timeArray.get(i) + "\n");
+            ff.write(timeArray.get(i) + "|");
         }
         ff.close();
         }

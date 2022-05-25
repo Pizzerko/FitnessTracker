@@ -36,26 +36,26 @@ public class NewDay {
     }
     public double averageCaloriesEaten() {
         double avg = 0;
-        for(int obj : waterArr) {
+        for(int obj : caloriesEArr) {
             avg += obj;
         }
-        return avg / waterArr.size();
+        return avg / caloriesEArr.size();
     }
 
     public double averageStepsTaken() {
         double avg = 0;
-        for(int obj : caloriesEArr) {
+        for(int obj : stepsArr) {
             avg += obj;
         }
-        return avg / caloriesEArr.size();
+        return avg / stepsArr.size();
     }
 
     public double averageCaloriesBurned() {
         double avg = 0;
-        for(int obj : caloriesEArr) {
+        for(double obj : caloriesBArr) {
             avg += obj;
         }
-        return avg / caloriesEArr.size();
+        return avg / caloriesBArr.size();
     }
 
     public void addWater(int water) {
@@ -74,7 +74,7 @@ public class NewDay {
     }
 
     public void resetArrays() {
-        if(waterArr.size() == 8 && caloriesEArr.size() == 8) {
+        if(waterArr.size() > 7 && caloriesEArr.size() > 7) {
             System.out.println("A new week has started!");
             for (int i = 0; i < waterArr.size(); i++) {
                 waterArr.remove(i);
