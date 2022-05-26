@@ -63,7 +63,7 @@ public class Exercise {
             FileWriter ff = new FileWriter("src/Info,data");
             ff.write(caloricGoal + "|");
             ff.write(totalCaloriesBurned + "|");
-            ff.write(totalStepsTook);
+            ff.write(totalStepsTook + "\n");
             ff.close();
         }
         catch (IOException e) {
