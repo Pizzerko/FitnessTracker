@@ -14,11 +14,11 @@ public class Exercise {
         return totalStepsTook;
     }
 
-    public double getTotalCaloriesBurned() {
+    public int getTotalCaloriesBurned() {
         return totalCaloriesBurned;
     }
 
-    public double getCaloricGoal() {
+    public int getCaloricGoal() {
         return caloricGoal;
     }
 
@@ -26,14 +26,22 @@ public class Exercise {
         this.caloricGoal = caloricGoal;
     }
 
+    public void setSteps(int steps) {
+        totalStepsTook = steps;
+    }
+
+    public void setCaloriesBurned(int caloriesBurned) {
+        totalCaloriesBurned = caloriesBurned;
+    }
+
     public void addSteps(int steps) {
         totalStepsTook += steps;
         totalCaloriesBurned += calculateCalories(steps);
     }
 
-    private double calculateCalories(int steps) {
+    private int calculateCalories(int steps) {
         int random = (int)((Math.random() * 11) + 30);
-        return (steps / 1000.0) * random;
+        return (int) (steps / 1000.0) * random;
     }
 
     public String isWithinGoal() {
@@ -44,7 +52,7 @@ public class Exercise {
             return"You're past your caloric goal. You walked a lot didn't you.";
         }
         if((int) (totalCaloriesBurned * 1.1) >= caloricGoal) {
-            return"You're close! Walk morea!";
+            return"You're close! Walk more!";
 
         }
         else return "You're not there, walk more!";
@@ -58,16 +66,16 @@ public class Exercise {
 
     public void save() {
         try {
-            File f = new File("src/Intake.data");
+            File f = new File("src/exercise.data");
             f.createNewFile();
-            FileWriter ff = new FileWriter("src/Info,data");
+            FileWriter ff = new FileWriter("src/exercise.data");
             ff.write(caloricGoal + "|");
             ff.write(totalCaloriesBurned + "|");
             ff.write(totalStepsTook + "\n");
             ff.close();
         }
         catch (IOException e) {
-            System.out.println("File isn't a thing.");
+            System.out.println("This file isn't a thing.");
             e.printStackTrace();
         }
     }

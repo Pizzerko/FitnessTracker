@@ -6,13 +6,13 @@ public class NewDay {
     private ArrayList<Integer> waterArr;
     private ArrayList<Integer> caloriesEArr;
     private ArrayList<Integer> stepsArr;
-    private ArrayList<Double> caloriesBArr;
+    private ArrayList<Integer> caloriesBArr;
 
     public NewDay() {
         caloriesEArr = new ArrayList<Integer>();
         waterArr = new ArrayList<Integer>();
         stepsArr = new ArrayList<Integer>();
-        caloriesBArr = new ArrayList<Double>();
+        caloriesBArr = new ArrayList<Integer>();
     }
 
     public boolean canCalculateAvg() {
@@ -70,7 +70,7 @@ public class NewDay {
     public void addSteps(int steps) {
         stepsArr.add(steps);
     }
-    public void addCaloriesBurned(double cBurned) {
+    public void addCaloriesBurned(int cBurned) {
         caloriesBArr.add(cBurned);
     }
 
@@ -87,9 +87,9 @@ public class NewDay {
 
     public void save() {
         try {
-            File file = new File("src/Intake.data");
+            File file = new File("src/newDay.data");
             file.createNewFile();
-            FileWriter ff = new FileWriter("src/Intake.data");
+            FileWriter ff = new FileWriter("src/newDay.data");
             for(int i = 0; i < waterArr.size(); i++) {
                 if(i == waterArr.size() - 1) ff.write(waterArr.get(i) + "\n");
                 else ff.write(waterArr.get(i) + "|");
@@ -106,6 +106,7 @@ public class NewDay {
                 if(q == caloriesBArr.size() - 1) ff.write(caloriesBArr.get(q) + "\n");
                 else ff.write(caloriesBArr.get(q) + "|");
             }
+            ff.close();
         }
         catch(IOException e) {
             System.out.println("Unable to find file");
