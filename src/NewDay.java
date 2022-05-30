@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -5,13 +6,13 @@ public class NewDay {
     private ArrayList<Integer> waterArr;
     private ArrayList<Integer> caloriesEArr;
     private ArrayList<Integer> stepsArr;
-    private ArrayList<Double> caloriesBArr;
+    private ArrayList<Integer> caloriesBArr;
 
     public NewDay() {
         caloriesEArr = new ArrayList<Integer>();
         waterArr = new ArrayList<Integer>();
         stepsArr = new ArrayList<Integer>();
-        caloriesBArr = new ArrayList<Double>();
+        caloriesBArr = new ArrayList<Integer>();
     }
 
     public boolean canCalculateAvg() {
@@ -69,7 +70,7 @@ public class NewDay {
     public void addSteps(int steps) {
         stepsArr.add(steps);
     }
-    public void addCaloriesBurned(double cBurned) {
+    public void addCaloriesBurned(int cBurned) {
         caloriesBArr.add(cBurned);
     }
 
@@ -81,6 +82,35 @@ public class NewDay {
                 caloriesEArr.remove(i);
                 i--;
             }
+        }
+    }
+
+    public void save() {
+        try {
+            File file = new File("src/newDay.data");
+            file.createNewFile();
+            FileWriter ff = new FileWriter("src/newDay.data");
+            for(int i = 0; i < waterArr.size(); i++) {
+                if(i == waterArr.size() - 1) ff.write(waterArr.get(i) + "\n");
+                else ff.write(waterArr.get(i) + "|");
+            }
+            for(int o = 0; o < caloriesEArr.size(); o++) {
+                if(o == caloriesEArr.size() - 1) ff.write(caloriesEArr.get(o) + "\n");
+                else ff.write(caloriesEArr.get(o) + "|");
+            }
+            for(int p = 0; p < stepsArr.size(); p++) {
+                if(p == stepsArr.size() - 1) ff.write(stepsArr.get(p) + "\n");
+                else ff.write(stepsArr.get(p) + "|");
+            }
+            for(int q = 0; q < caloriesBArr.size(); q++) {
+                if(q == caloriesBArr.size() - 1) ff.write(caloriesBArr.get(q) + "\n");
+                else ff.write(caloriesBArr.get(q) + "|");
+            }
+            ff.close();
+        }
+        catch(IOException e) {
+            System.out.println("Unable to find file");
+            e.printStackTrace();
         }
     }
 

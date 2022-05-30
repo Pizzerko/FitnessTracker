@@ -159,21 +159,21 @@ public class Intake {
 
     public void save() {
         try {
-            File file = new File("src/Intake.data");
+            File file = new File("src/intake.data");
             file.createNewFile();
-        FileWriter ff = new FileWriter("src/Intake.data");
-        ff.write(goalWater + "|");
-        ff.write(goalCalories + "|");
-        ff.write(totalWaterDrank+ "|");
-        ff.write(totalCaloriesEaten + "\n");
-        for(int i = 0; i < timeArray.size(); i++) {
-            ff.write(timeArray.get(i) + "|");
-        }
-        ff.close();
+            FileWriter ff = new FileWriter("src/intake.data");
+            ff.write(goalWater + "|");
+            ff.write(goalCalories + "|");
+            ff.write(totalWaterDrank + "|");
+            ff.write(totalCaloriesEaten + "\n");
+            for (int i = 0; i < timeArray.size(); i++) {
+                ff.write(timeArray.get(i) + "|");
+            }
+            ff.close();
         }
         catch(IOException e) {
-        System.out.println("Unable to find file");
-        e.printStackTrace();
+            System.out.println("Unable to find file");
+            e.printStackTrace();
         }
     }
 
