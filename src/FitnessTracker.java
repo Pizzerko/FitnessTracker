@@ -32,8 +32,7 @@ public class FitnessTracker {
                            if (i == 0) waterG = num;
                            if (i == 1) caloricEatenG = num;
                            if (i == 2) totalWater = num;
-                           if (i == 3) totalCaloriesE = num;
-                           else break;
+                           else totalCaloriesE = num;
                        }
                    }
                    if (line == 2) {
@@ -101,6 +100,7 @@ public class FitnessTracker {
                    i.addHistory(timeArr.get(ii));
                }
                i.setWater(totalWater);
+               System.out.println(totalWater);
                i.setCaloriesE(totalCaloriesE);
                e.setSteps(totalSteps);
                e.setCaloriesBurned(totalCaloriesB);

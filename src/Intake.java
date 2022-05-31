@@ -51,10 +51,10 @@ public class Intake {
     }
 
     public void setWater(int water) {
-        totalWaterDrank = water;
+        this.totalWaterDrank = water;
     }
     public void setCaloriesE(int calories) {
-        totalCaloriesEaten = calories;
+        this.totalCaloriesEaten = calories;
     }
 
     public String isPassingWaterGoal() {
@@ -165,7 +165,7 @@ public class Intake {
             ff.write(goalWater + "|");
             ff.write(goalCalories + "|");
             ff.write(totalWaterDrank + "|");
-            ff.write(totalCaloriesEaten + "\n");
+            ff.write(totalCaloriesEaten + "|" + "\n");
             for (int i = 0; i < timeArray.size(); i++) {
                 ff.write(timeArray.get(i) + "|");
             }
