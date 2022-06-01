@@ -2,13 +2,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-public class NewDay {
+public class Week {
     private ArrayList<Integer> waterArr;
     private ArrayList<Integer> caloriesEArr;
     private ArrayList<Integer> stepsArr;
     private ArrayList<Integer> caloriesBArr;
 
-    public NewDay() {
+    public Week() {
         caloriesEArr = new ArrayList<Integer>();
         waterArr = new ArrayList<Integer>();
         stepsArr = new ArrayList<Integer>();
@@ -22,6 +22,14 @@ public class NewDay {
 
     public ArrayList<Integer> getCaloriesEArr() {
         return caloriesEArr;
+    }
+
+    public ArrayList<Integer> getStepsArr() {
+        return stepsArr;
+    }
+
+    public ArrayList<Integer> getCaloriesBArr() {
+        return caloriesBArr;
     }
 
     public ArrayList<Integer> getWaterArr() {
@@ -87,9 +95,9 @@ public class NewDay {
 
     public void save() {
         try {
-            File file = new File("src/newDay.data");
+            File file = new File("src/week.data");
             file.createNewFile();
-            FileWriter ff = new FileWriter("src/newDay.data");
+            FileWriter ff = new FileWriter("src/week.data");
             for(int i = 0; i < waterArr.size(); i++) {
                 if(i == waterArr.size() - 1) ff.write(waterArr.get(i) + "\n");
                 else ff.write(waterArr.get(i) + "|");

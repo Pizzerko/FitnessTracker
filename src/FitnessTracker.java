@@ -21,7 +21,7 @@ public class FitnessTracker {
            int totalSteps = 0;
            int totalCaloriesB = 0;
            int caloricBurnedG = 0;
-           NewDay n = new NewDay();
+           Week n = new Week();
            if(ss.hasNextLine()) {
                while (ss.hasNextLine()) {
                    String data = ss.nextLine();
@@ -100,14 +100,13 @@ public class FitnessTracker {
                    i.addHistory(timeArr.get(ii));
                }
                i.setWater(totalWater);
-               System.out.println(totalWater);
                i.setCaloriesE(totalCaloriesE);
                e.setSteps(totalSteps);
                e.setCaloriesBurned(totalCaloriesB);
                boolean stop = true;
 
                while (stop) {
-                   System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal\n10. Today's History\n11. Go To Tomorrow\n12. End");
+                   System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal?\n10. Today's History\n11. Go To Tomorrow\n12. End");
                    String response = s.nextLine();
                    response = response.toLowerCase();
                    if (response.equals("12")) {
@@ -201,11 +200,11 @@ public class FitnessTracker {
                            if (response2.equals("1")) {
                                System.out.println(n.averageWaterDrank() + " for " + n.getWaterArr().size() + " days");
                            } else if (response2.equals("2")) {
-                               System.out.println(n.averageCaloriesEaten() + " for " + n.getWaterArr().size() + " days");
+                               System.out.println(n.averageCaloriesEaten() + " for " + n.getCaloriesEArr().size() + " days");
                            } else if (response2.equals("3")) {
-                               System.out.println(n.averageStepsTaken() + " for " + n.getCaloriesEArr().size() + " days");
+                               System.out.println(n.averageStepsTaken() + " for " + n.getStepsArr().size() + " days");
                            } else if (response2.equals("4")) {
-                               System.out.println(n.averageCaloriesBurned() + " for " + n.getCaloriesEArr().size() + " days");
+                               System.out.println(n.averageCaloriesBurned() + " for " + n.getCaloriesBArr().size() + " days");
                            } else System.out.println("Invalid Input, going back to page 1.");
                        } else System.out.println("Invalid, no inputs yet.");
                    } else if (response.equals("10")) {
@@ -220,7 +219,7 @@ public class FitnessTracker {
                    System.out.println();
                }
            }
-           else {
+           /**else {
                System.out.println("What's your name: ");
                String name = s.nextLine();
                System.out.println("Hello " + name + ". Welcome to your personal fitness tracker.\nThere are many features for you to utilize. Type in word for word on what you'd like to do with the listed commands below.");
@@ -239,7 +238,7 @@ public class FitnessTracker {
                boolean stop = true;
 
                while (stop) {
-                   System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal\n10. Today's History\n11. Go To Tomorrow\n12. End");
+                   System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal?\n10. Today's History\n11. Go To Tomorrow\n12. End");
                    String response = s.nextLine();
                    if (response.equals("12")) {
                        i.save();
@@ -350,7 +349,7 @@ public class FitnessTracker {
                    } else System.out.println("Invalid. Re-input your decision.");
                    System.out.println();
                }
-           }
+           }*/
         }
 
          catch (FileNotFoundException ee) {             //CATCH
@@ -369,12 +368,12 @@ public class FitnessTracker {
              int samount1 = Integer.parseInt(samount);
              Intake i = new Intake(wamount1, camount1);
              Exercise e = new Exercise(samount1);
-             NewDay n = new NewDay();
+             Week n = new Week();
              System.out.println("The fitness tracker's feature will now be displayed (type just the number, not the phrase).");
              boolean stop = true;
 
              while (stop) {
-                 System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal\n10. Today's History\n11. Go To Tomorrow\n12. End");           //choices
+                 System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal?\n10. Today's History\n11. Go To Tomorrow\n12. End");           //choices
                  String response = s.nextLine();
                  response = response.toLowerCase();
                  if (response.equals("12")) {
