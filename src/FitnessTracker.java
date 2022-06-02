@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class FitnessTracker {
     public static void main(String[] args) {
-        try {                                            //TRY
+        try {
            File file = new File("src/intake.data");
            File file2 = new File("src/exercise.data");
-           File file3 = new File("src/newDay.data");
+           File file3 = new File("src/week.data");
            Scanner ss = new Scanner(file);
            Scanner ss2 = new Scanner(file2);
            Scanner ss3 = new Scanner (file3);
@@ -221,7 +221,7 @@ public class FitnessTracker {
            }
         }
 
-         catch (FileNotFoundException ee) {             //CATCH
+         catch (FileNotFoundException ee) {
              Scanner s = new Scanner(System.in);
              System.out.println("What's your name: ");
              String name = s.nextLine();
