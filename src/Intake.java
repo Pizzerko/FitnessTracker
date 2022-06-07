@@ -59,27 +59,27 @@ public class Intake {
 
     public String isPassingWaterGoal() {
         if(totalWaterDrank == goalWater) {
-            return "Well done, you drank up to your goal!";
+            return "Well done, you drank up to your goal!\uD83D\uDE01";
         }
         else if(totalWaterDrank > goalWater) {
-            return "Superb! You drank more than your goal!";
+            return "Superb! You drank more than your goal!\uD83D\uDE0E";
         }
         else if(totalWaterDrank * 1.1 >= goalWater) {
-            return "Keep going! You're almost at your goal!";
+            return "Keep going! You're almost at your goal!\uD83D\uDE42";
         }
-        else return "You still haven't reached your goal yet! DRINK MORE!";
+        else return "You still haven't reached your goal yet! DRINK MORE!\uD83D\uDE10";
     }
     public String isPassingCaloricGoal() {
         if(totalCaloriesEaten == goalCalories) {
-            return "Well done, you've reached your caloric threshold!";
+            return "Well done, you've reached your caloric threshold!\uD83D\uDE01";
         }
         else if (totalCaloriesEaten > goalCalories) {
-            return "You passed your goal! Are you sure you want to keep eating...?";
+            return "You passed your goal! Are you sure you want to keep eating...?\uD83D\uDE0E";
         }
         else if(totalCaloriesEaten * 1.1 >= goalCalories) {
-            return "You're almost at your caloric goal! Just a bit more food!";
+            return "You're almost at your caloric goal! Just a bit more food!\uD83D\uDE42";
         }
-        else return "You're not there yet. Keep eating!";
+        else return "You're not there yet. Keep eating!\uD83D\uDE10";
     }
 
     private ArrayList<String> organizeTime() {

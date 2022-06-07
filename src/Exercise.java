@@ -46,16 +46,16 @@ public class Exercise {
 
     public String isWithinGoal() {
         if(totalCaloriesBurned == caloricGoal) {
-            return"YOu've burned your goal number of calories! Keep it up!";
+            return"YOu've burned your goal number of calories! Keep it up!\uD83D\uDE01";
         }
         if(totalCaloriesBurned > caloricGoal) {
-            return"You're past your caloric goal. You walked a lot didn't you.";
+            return"You're past your caloric goal. You walked a lot didn't you.\uD83D\uDE0E";
         }
         if((int) (totalCaloriesBurned * 1.1) >= caloricGoal) {
-            return"You're close! Walk more!";
+            return"You're close! Walk more!\uD83D\uDE42";
 
         }
-        else return "You're not there, walk more!";
+        else return "You're not there.\uD83D\uDE10";
     }
 
     public void reset() {

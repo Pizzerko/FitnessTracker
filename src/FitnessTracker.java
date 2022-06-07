@@ -94,8 +94,8 @@ public class FitnessTracker {
                Exercise e = new Exercise(caloricBurnedG);
                System.out.println("What's your name: ");
                String name = s.nextLine();
-               System.out.println("Hello " + name + ". Welcome back to your personal fitness tracker.\nThere are many features for you to utilize. Type in word for word on what you'd like to do with the listed commands below.");
-               System.out.println("The fitness tracker's feature will be displayed (type just the number, not the phrase).");
+               System.out.println("Hello " + name + ". Welcome back to your personal fitness tracker.\nThere are many features for you to utilize.");
+               System.out.println("The fitness tracker's feature will be displayed.");
                for (int ii = 0; ii < timeArr.size(); ii++) {
                    i.addHistory(timeArr.get(ii));
                }
@@ -106,7 +106,7 @@ public class FitnessTracker {
                boolean stop = true;
 
                while (stop) {
-                   System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal?\n10. Today's History\n11. Go To Tomorrow\n12. End");
+                   System.out.println("-What do you want to do?\n(1) Set Water Goal\n(2) Set Calories Eaten Goal\n(3) Set Calories Burnt Goal\n(4) Get Info\n(5) Add Water Drank\n(6) Add Calories Eaten\n(7) Add Steps Taken" + "\n(8) Find Averages\n(9) Passing Goal?\n(10) Today's History\n(11) Go To Tomorrow\n(12) End");
                    String response = s.nextLine();
                    response = response.toLowerCase();
                    if (response.equals("12")) {
@@ -174,28 +174,28 @@ public class FitnessTracker {
                        e.addSteps(steps1);
                    } else if (response.equals("4")) {
                        System.out.println();
-                       System.out.println("What would you like to know?\n1. Get Total Water Drank\n2. Get Total Calories Eaten\n3. Get Water Intake Goal\n4. Get Caloric Intake Goal\n5. Get Total Steps Taken\n6. Get Total Calories Burned\n7. Get Caloric Burn Goal");
+                       System.out.println("What would you like to know?\n(1) Get Total Water Drank\n(2) Get Total Calories Eaten\n(3) Get Water Intake Goal\n(4) Get Caloric Intake Goal\n(5) Get Total Steps Taken\n(6) Get Total Calories Burned\n(7) Get Caloric Burn Goal");
                        String response1 = s.nextLine();
                        response1 = response1.toLowerCase();
                        if (response1.equals("1")) {
-                           System.out.println(i.getTotalWaterDrank() + " fl oz drank");
+                           System.out.println("You drank: " + i.getTotalWaterDrank() + " fl oz drank");
                        } else if (response1.equals("2")) {
-                           System.out.println(i.getTotalCaloriesEaten() + " calories");
+                           System.out.println("You ate: " + i.getTotalCaloriesEaten() + " calories");
                        } else if (response1.equals("3")) {
-                           System.out.println(i.getGoalWater() + " fl oz");
+                           System.out.println("You plan to drink: " + i.getGoalWater() + " fl oz");
                        } else if (response1.equals("4")) {
-                           System.out.println(i.getGoalCalories() + " calories");
+                           System.out.println("You plan to eat: " + i.getGoalCalories() + " calories");
                        } else if (response1.equals("5")) {
-                           System.out.println(e.getTotalStepsTook() + " steps");
+                           System.out.println("You walked: " + e.getTotalStepsTook() + " steps");
                        } else if (response1.equals("6")) {
-                           System.out.println(e.getTotalCaloriesBurned() + " calories");
+                           System.out.println("You burned: " + e.getTotalCaloriesBurned() + " calories");
                        } else if (response1.equals("7")) {
-                           System.out.println(e.getCaloricGoal() + " calories");
+                           System.out.println("You plan to burn: " + e.getCaloricGoal() + " calories");
                        } else System.out.println("Invalid Input, going back to page 1.");
                    } else if (response.equals("8")) {
                        if (n.canCalculateAvg()) {
                            System.out.println();
-                           System.out.println("Which averages would you like to know?\n1. Average Water Drank\n2. Average Calories Eaten\n3. Average Steps Taken\n4. Average Calories Burned");
+                           System.out.println("Which averages would you like to know?\n(1) Average Water Drank\n(2) Average Calories Eaten\n(3) Average Steps Taken\n(4) Average Calories Burned");
                            String response2 = s.nextLine();
                            if (response2.equals("1")) {
                                System.out.println(n.averageWaterDrank() + " for " + n.getWaterArr().size() + " days");
@@ -225,11 +225,11 @@ public class FitnessTracker {
              Scanner s = new Scanner(System.in);
              System.out.println("What's your name: ");
              String name = s.nextLine();
-             System.out.println("Hello " + name + ". Welcome to your personal fitness tracker.\nThere are many features for you to utilize. Type in word for word on what you'd like to do with the listed commands below.");
-             System.out.println("Before we start, what's your water intake goal for today (How many fl oz do you plan to drink, input just the number)?");
+             System.out.println("Hello " + name + ". Welcome to your personal fitness tracker.\nThere are many features for you to utilize.");
+             System.out.println("Before we start, what's your water intake goal for today (input just the number)?");
              String wamount = s.nextLine();
              int wamount1 = Integer.parseInt(wamount);
-             System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume, input just the number)?");
+             System.out.println("What's your caloric intake goal for today (How many calories do you plan to consume (input just the number)?");
              String camount = s.nextLine();
              int camount1 = Integer.parseInt(camount);
              System.out.println("Finally, how many calories do you plan to burn today (input just the number)?");
@@ -238,11 +238,11 @@ public class FitnessTracker {
              Intake i = new Intake(wamount1, camount1);
              Exercise e = new Exercise(samount1);
              Week n = new Week();
-             System.out.println("The fitness tracker's feature will now be displayed (type just the number, not the phrase).");
+             System.out.println("The fitness tracker's feature will now be displayed.");
              boolean stop = true;
 
              while (stop) {
-                 System.out.println("-What do you want to do?\n1. Set Water Goal\n2. Set Calories Eaten Goal\n3. Set Calories Burnt Goal\n4. Get Info\n5. Add Water Drank\n6. Add Calories Eaten\n7. Add Steps Taken" + "\n8. Find Averages\n9. Passing Goal?\n10. Today's History\n11. Go To Tomorrow\n12. End");           //choices
+                 System.out.println("-What do you want to do?\n(1) Set Water Goal\n(2) Set Calories Eaten Goal\n(3) Set Calories Burnt Goal\n(4) Get Info\n(5) Add Water Drank\n(6) Add Calories Eaten\n(7) Add Steps Taken\n(8) Find Averages\n(9) Passing Goal?\n(10) Today's History\n(11) Go To Tomorrow\n(12) End");
                  String response = s.nextLine();
                  response = response.toLowerCase();
                  if (response.equals("12")) {
@@ -310,28 +310,28 @@ public class FitnessTracker {
                      e.addSteps(steps1);
                  } else if (response.equals("4")) {
                      System.out.println();
-                     System.out.println("What would you like to know?\n1. Get Total Water Drank\n2. Get Total Calories Eaten\n3. Get Water Intake Goal\n4. Get Caloric Intake Goal\n5. Get Total Steps Taken\n6. Get Total Calories Burned\n7. Get Caloric Burn Goal");
+                     System.out.println("What would you like to know?\n(1) Get Total Water Drank\n(2) Get Total Calories Eaten\n(3) Get Water Intake Goal\n(4) Get Caloric Intake Goal\n(5) Get Total Steps Taken\n(6) Get Total Calories Burned\n(7) Get Caloric Burn Goal");
                      String response1 = s.nextLine();
                      response1 = response1.toLowerCase();
                      if (response1.equals("1")) {
-                         System.out.println(i.getTotalWaterDrank() + " fl oz drank");
+                         System.out.println("You drank: " + i.getTotalWaterDrank() + " fl oz drank");
                      } else if (response1.equals("2")) {
-                         System.out.println(i.getTotalCaloriesEaten() + " calories");
+                         System.out.println("You ate: " + i.getTotalCaloriesEaten() + " calories");
                      } else if (response1.equals("3")) {
-                         System.out.println(i.getGoalWater() + " fl oz");
+                         System.out.println("You plan to drink: " + i.getGoalWater() + " fl oz");
                      } else if (response1.equals("4")) {
-                         System.out.println(i.getGoalCalories() + " calories");
+                         System.out.println("You plan to eat: " + i.getGoalCalories() + " calories");
                      } else if (response1.equals("5")) {
-                         System.out.println(e.getTotalStepsTook() + " steps");
+                         System.out.println("You walked: " + e.getTotalStepsTook() + " steps");
                      } else if (response1.equals("6")) {
-                         System.out.println(e.getTotalCaloriesBurned() + " calories");
+                         System.out.println("You burned: " + e.getTotalCaloriesBurned() + " calories");
                      } else if (response1.equals("7")) {
-                         System.out.println(e.getCaloricGoal() + " calories");
+                         System.out.println("You plan to burn: " + e.getCaloricGoal() + " calories");
                      } else System.out.println("Invalid Input, going back to page 1.");
                  } else if (response.equals("8")) {
-                     if (n.canCalculateAvg()) {//avgs
+                     if (n.canCalculateAvg()) {
                          System.out.println();
-                         System.out.println("Which averages would you like to know?\n1. Average Water Drank\n2. Average Calories Eaten\n3. Average Steps Taken\n4. Average Calories Burned");
+                         System.out.println("Which averages would you like to know?\n(1) Average Water Drank\n(2) Average Calories Eaten\n(3) Average Steps Taken\n(4) Average Calories Burned");
                          String response2 = s.nextLine();
                          if (response2.equals("1")) {
                              System.out.println(n.averageWaterDrank() + " for " + n.getWaterArr().size() + " days");
